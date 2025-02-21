@@ -23,29 +23,32 @@
 <body class="bg-gradient-to-br from-[#051B2C] via-[#0A2E38] to-[#1A535C] min-h-screen">
     <!-- Navigation -->
     <nav class="fixed w-full bg-white/5 backdrop-blur-lg border-b border-white/10 z-50">
-        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <svg class="w-8 h-8 text-amber-400 floating-spice" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 3c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.5.5.1 1 .2 1.5.2V21l3-3-3-3v2.5c-.5 0-1-.1-1.5-.2-2.2-.7-3.8-2.8-3.8-5.3 0-3 2.5-5.5 5.5-5.5S17 9 17 12c0 .3 0 .6-.1.9.7.3 1.5.5 2.3.6.2-.5.3-1 .3-1.5 0-4.4-3.6-8-8-8z"/>
-                </svg>
-                <span class="text-2xl font-bold gradient-text">
-                    Ramadan Recipes
-                </span>
-            </div>
-
-            <div class="flex items-center space-x-8">
-                <a href="#recipes" class="text-white/80 hover:text-amber-400 transition-all duration-300 text-sm font-medium">Posts</a>
-
-                <button 
-                    onclick="document.getElementById('recipeForm').classList.toggle('hidden')"
-                    class="bg-gradient-to-r from-amber-400 to-emerald-400 hover:from-amber-500 hover:to-emerald-500 
-                           text-white px-8 py-3 rounded-full text-sm font-semibold 
-                           shadow-lg shadow-amber-400/20 transition-all duration-300 transform hover:scale-105 active:scale-95">
-                    🥘 Share Recipe
-                </button>
-            </div>
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <svg class="w-8 h-8 text-amber-400 floating-spice" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 3c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.5.5.1 1 .2 1.5.2V21l3-3-3-3v2.5c-.5 0-1-.1-1.5-.2-2.2-.7-3.8-2.8-3.8-5.3 0-3 2.5-5.5 5.5-5.5S17 9 17 12c0 .3 0 .6-.1.9.7.3 1.5.5 2.3.6.2-.5.3-1 .3-1.5 0-4.4-3.6-8-8-8z"/>
+            </svg>
+            <span class="text-2xl font-bold gradient-text">
+                Ramadan Recipes
+            </span>
         </div>
-    </nav>
+
+        <div class="flex items-center space-x-8">
+            <a href="{{ url('/') }}" class="text-white/80 hover:text-amber-400 transition-all duration-300 text-sm font-medium">Posts</a>
+            <a href="{{ url('/recipes/1/category') }}" class="text-white/80 hover:text-amber-400 transition-all duration-300 text-sm font-medium">Categories</a>
+            <a href="{{ url('/recipes') }}" class="text-white/80 hover:text-amber-400 transition-all duration-300 text-sm font-medium">Recipes</a>
+
+            <button 
+                onclick="document.getElementById('recipeForm').classList.toggle('hidden')"
+                class="bg-gradient-to-r from-amber-400 to-emerald-400 hover:from-amber-500 hover:to-emerald-500 
+                       text-white px-8 py-3 rounded-full text-sm font-semibold 
+                       shadow-lg shadow-amber-400/20 transition-all duration-300 transform hover:scale-105 active:scale-95">
+                🥘 Share Recipe
+            </button>
+        </div>
+    </div>
+</nav>
+
 
     <!-- Hero Section -->
     <section class="pt-40 pb-24 px-6 relative overflow-hidden">

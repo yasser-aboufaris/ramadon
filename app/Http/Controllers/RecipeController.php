@@ -39,16 +39,33 @@ class RecipeController extends Controller
 
 public function filterByCategory($category_id)
 {
+    // Retrieve recipes for the specified category.
     $recipes = Recipe::with('category')
         ->whereHas('category', function($query) use ($category_id) {
             $query->where('id', $category_id);
         })
         ->get();
-    
+        
+    $recipeCount = $recipes->count();
+
+    $totalRecipes = Recipe::count();
+
+    $categoryPercentage = $totalRecipes > 0 ? round(($recipeCount / $totalRecipes) * 100, 2) : 0;
+
+    $totalCategories = Category::count();
+    $averageRecipesPerCategory = $totalCategories > 0 ? round($totalRecipes / $totalCategories, 2) : 0;
+
     $categories = Category::all();
     $currentCategory = Category::findOrFail($category_id);
 
-    return view('filter', compact('recipes', 'categories', 'currentCategory'));
+    return view('filter', compact(
+        'recipes', 
+        'categories', 
+        'currentCategory', 
+        'averageRecipesPerCategory', 
+        'categoryPercentage'
+    ));
 }
+
 
 }
